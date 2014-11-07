@@ -14,12 +14,13 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFormLayout>
+#include "Netflix.h"
 
 class loginClass:public QWidget{
 Q_OBJECT
 
 public:
-	loginClass(QWidget *parent=0);
+	loginClass(Netflix *N, QWidget *parent=0);
 	//loginClass(QWidget *parent = 0);
 	~loginClass();
 
@@ -35,8 +36,8 @@ private:
 	QPushButton *loginB;
 
 	QLineEdit *loginText;
-//
-	//Netflix *netflix; 
+
+	Netflix *netflix; 
 };
 
 #endif

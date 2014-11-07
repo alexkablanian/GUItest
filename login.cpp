@@ -13,11 +13,14 @@
 #include <QFormLayout>
 #include <QTextStream>
 #include "login.h"
+#include "newUserClass.h"
 
 using namespace std;
 
-loginClass::loginClass(QWidget *parent):QWidget(parent){
+loginClass::loginClass(Netflix *N, QWidget *parent):QWidget(parent){
 //loginClass::loginClass (QWidget *parent):QWidget(parent){
+	netflix = N;
+
 	QVBoxLayout *loginScreen = new QVBoxLayout;
 	QHBoxLayout *buttonLayout = new QHBoxLayout;
 
@@ -53,9 +56,9 @@ loginClass::~loginClass(){}
 void loginClass::clickNewUser(){
 	//get taken to the new user window
 	cout << "new user" << endl;
-	//newUserClass *newUserWindow = new newUserClass();
+	newUserClass *newUserWindow = new newUserClass(netflix);
 	this -> hide();
-	//newUserWindow -> show();	
+	newUserWindow -> show();	
 }
 
 void loginClass::login(){
@@ -63,6 +66,9 @@ void loginClass::login(){
 	QString username = loginText -> text();
 	cout << "it worked!" << endl;
 	QTextStream(stdout) << username << endl;
+	string textuser = username.toStdString();
+	cout << textuser << endl;
+	netflix -> checkUser (textuser);
 	//run netflix login
 	//take qline edit and input as string 
 	//userMenuClass *newUserMenu = new userMenuClass();
@@ -74,6 +80,7 @@ void loginClass::quit(){
 	//write out files and deallocate memory when quit clicked
 	//end program
 	cout << "Leaving program" << endl;
+	netflix->writeOut();
+	netflix-> memoryDeallocate();
 	this -> close();
-	//connect (quitB, SIGNAL(clicked()), qAPP, SLOT (quit()));
 }

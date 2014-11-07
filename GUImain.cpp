@@ -19,11 +19,9 @@ int main (int argc, char *argv[]){
 	QApplication app (argc, argv);
 
 	Netflix *netflix = new Netflix(argv[1]);
-	//Netflix netflix (argv[1]);
 	
-	//loginClass *loginwindow = new loginClass(netflix);
-	loginClass *loginwindow = new loginClass();
-	//loginwindow->show();
+	loginClass *loginwindow = new loginClass(netflix);
+	loginwindow->show();
 
 	return app.exec();
 }

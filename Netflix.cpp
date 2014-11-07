@@ -458,7 +458,7 @@ bool Netflix::checkUser(string username){
 	Set <string>::Iterator existingUsersIter = existingUsers->begin();
 	for (int i =0; i < existingUsers->size(); i++){
 		if (username == *existingUsersIter){
-			//	cout << "This ID already exists! Back to main menu screen to choose another option!" << endl;
+			cout << "This ID already exists! Back to main menu screen to choose another option!" << endl;
 			checker = true;
 			return checker;
 		}

@@ -1,7 +1,7 @@
 #ifndef USER_H
 #define USER_H
 
-#include "Movie.cpp"
+#include "Movie.h"
 #include "Queue.h"
 
 class User

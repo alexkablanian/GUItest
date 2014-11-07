@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <cctype>
-#include "User.cpp"
+#include "User.h"
 
 using namespace std;
 
